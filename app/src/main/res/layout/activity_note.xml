@@ -77,6 +77,7 @@
             android:layout_height="wrap_content"
             app:scaleToFit="true"
             app:colors="@array/note_color_array_many"
+            app:dialDiameter="200dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

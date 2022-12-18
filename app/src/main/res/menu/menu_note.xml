@@ -3,6 +3,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="com.jwhh.notekeeper.NoteActivity">
     <item
+        android:id="@+id/action_remind"
+        android:icon="@drawable/ic_notifications"
+        android:title="Remind"
+        app:showAsAction="ifRoom|withText" />
+    <item
         android:id="@+id/action_cancel"
         android:icon="@android:drawable/ic_menu_revert"
         android:title="Cancel"
