@@ -167,6 +167,7 @@ class NoteActivity : AppCompatActivity() {
         note.text = binding.textNoteText.text.toString()
         note.course = binding.spinnerCourses.selectedItem as CourseInfo
         note.color = this.noteColor
+        NoteKeeperAppWidget.sendRefreshBroadcast(this)
     }
 
     private val requestReminderNotificationPermission =

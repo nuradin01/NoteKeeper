@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <uses-permission android:name="android.permission.POST_NOTIFICATIONS"/>
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
 
     <application
         android:name=".MyApp"
@@ -15,9 +15,22 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.NoteKeeper"
         tools:targetApi="31">
-        <activity android:name=".NoteActivity"
+        <receiver
+            android:name=".NoteKeeperAppWidget"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/note_keeper_app_widget_info" />
+        </receiver>
+
+        <activity
+            android:name=".NoteActivity"
             android:label="Edit Note"
-            android:parentActivityName=".MainActivity"/>
+            android:parentActivityName=".MainActivity" />
         <activity
             android:name=".MainActivity"
             android:exported="true">
@@ -31,6 +44,8 @@
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
+        <service android:name=".AppWidgetRemoteViewsService"
+            android:permission="android.permission.BIND_REMOTEVIEWS"/>
     </application>
 
 </manifest>
